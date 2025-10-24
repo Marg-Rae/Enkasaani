@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { StarIcon, ShoppingCartIcon, FunnelIcon } from '@heroicons/react/24/solid'
 import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline'
 import { useCartStore } from '@/store/cartStore'
@@ -11,7 +12,7 @@ const products = [
     name: 'Kente Pattern Journal',
     price: 24.99,
     originalPrice: 29.99,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop&crop=center',
     rating: 5,
     reviews: 42,
     description: 'Beautiful Kente-inspired journal with gold accents',
@@ -24,7 +25,7 @@ const products = [
     name: 'Adinkra Notebook Set',
     price: 19.99,
     originalPrice: null,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop&crop=center',
     rating: 4,
     reviews: 28,
     description: 'Set of 3 notebooks featuring traditional Adinkra symbols',
@@ -37,7 +38,7 @@ const products = [
     name: 'Ankara Print Diary',
     price: 29.99,
     originalPrice: 34.99,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
     rating: 5,
     reviews: 67,
     description: 'Premium leather-bound diary with vibrant Ankara prints',
@@ -50,7 +51,7 @@ const products = [
     name: 'Mudcloth Journal',
     price: 22.99,
     originalPrice: null,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center',
     rating: 4,
     reviews: 35,
     description: 'Authentic mudcloth pattern journal from Mali',
@@ -63,7 +64,7 @@ const products = [
     name: 'Dashiki Planner',
     price: 27.99,
     originalPrice: 32.99,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1609979659051-e752125b7b5d?w=400&h=400&fit=crop&crop=center',
     rating: 5,
     reviews: 53,
     description: 'Weekly planner with colorful Dashiki patterns',
@@ -76,7 +77,7 @@ const products = [
     name: 'Bogolan Sketchbook',
     price: 18.99,
     originalPrice: null,
-    image: '/api/placeholder/300/300',
+    image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=400&fit=crop&crop=center',
     rating: 4,
     reviews: 19,
     description: 'Artist sketchbook with traditional Bogolan designs',
@@ -172,9 +173,9 @@ export default function ProductGrid() {
             className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
           >
             {/* Product Image */}
-            <div className="aspect-square bg-gradient-to-br from-orange-100 to-yellow-100 relative overflow-hidden">
+            <div className="aspect-square relative overflow-hidden bg-gray-100">
               {/* Badges */}
-              <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
+              <div className="absolute top-3 left-3 z-20 flex flex-col gap-2">
                 {product.isNew && (
                   <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
                     NEW
@@ -192,10 +193,14 @@ export default function ProductGrid() {
                 )}
               </div>
 
-              <div className="absolute inset-0 bg-african-pattern opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-african-gold to-african-orange rounded-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300"></div>
-              </div>
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             {/* Product Info */}

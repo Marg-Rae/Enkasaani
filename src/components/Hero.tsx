@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 export default function Hero() {
@@ -43,11 +44,18 @@ export default function Hero() {
           <div className="relative">
             <div className="bg-gradient-to-br from-african-gold to-african-orange rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
               <div className="bg-white rounded-2xl p-6 shadow-inner">
-                <div className="aspect-square bg-gradient-to-br from-red-200 via-orange-200 to-yellow-200 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-african-pattern rounded-full mx-auto mb-4 opacity-80"></div>
-                    <h3 className="text-2xl font-bold text-african-brown">Premium Quality</h3>
-                    <p className="text-african-brown opacity-80">Handcrafted Excellence</p>
+                <div className="aspect-square relative rounded-xl overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop&crop=center"
+                    alt="Beautiful African print journals and notebooks"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-african-gold/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-center">
+                    <h3 className="text-2xl font-bold text-white drop-shadow-lg">Premium Quality</h3>
+                    <p className="text-white/90 drop-shadow-md">Handcrafted Excellence</p>
                   </div>
                 </div>
               </div>

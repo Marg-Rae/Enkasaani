@@ -1,6 +1,7 @@
 'use client'
 
 import { Fragment } from 'react'
+import Image from 'next/image'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon, MinusIcon, PlusIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useCartStore } from '@/store/cartStore'
@@ -92,8 +93,14 @@ export default function ShoppingCart() {
                             <ul role="list" className="-my-6 divide-y divide-gray-200">
                               {items.map((item) => (
                                 <li key={item.id} className="flex py-6">
-                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <div className="h-full w-full bg-gradient-to-br from-african-gold to-african-orange"></div>
+                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 relative">
+                                    <Image
+                                      src={item.image}
+                                      alt={item.name}
+                                      fill
+                                      className="object-cover"
+                                      sizes="96px"
+                                    />
                                   </div>
 
                                   <div className="ml-4 flex flex-1 flex-col">

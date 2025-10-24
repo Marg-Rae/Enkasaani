@@ -1,4 +1,5 @@
 import { HeartIcon, GiftIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -73,12 +74,22 @@ export default function About() {
             </div>
 
             {/* Image/Pattern Section */}
-            <div className="bg-gradient-to-br from-african-gold to-african-orange relative overflow-hidden">
-              <div className="absolute inset-0 african-pattern opacity-30"></div>
-              <div className="relative p-8 lg:p-12 h-full flex items-center justify-center">
-                <div className="text-center text-white">
-                  <h4 className="text-3xl font-bold mb-4">Celebrating Culture</h4>
-                  <p className="text-xl opacity-90">Through Beautiful Design</p>
+            <div className="relative overflow-hidden">
+              <div className="aspect-square lg:aspect-auto lg:h-full relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center"
+                  alt="African textile patterns and cultural heritage"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-african-gold/80 to-african-orange/80"></div>
+                <div className="absolute inset-0 african-pattern opacity-20"></div>
+                <div className="relative p-8 lg:p-12 h-full flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <h4 className="text-3xl font-bold mb-4 drop-shadow-lg">Celebrating Culture</h4>
+                    <p className="text-xl opacity-90 drop-shadow-md">Through Beautiful Design</p>
+                  </div>
                 </div>
               </div>
             </div>
