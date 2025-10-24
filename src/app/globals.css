@@ -1,38 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* African-inspired custom styles */
-.african-pattern {
-  background-image: 
-    radial-gradient(circle at 25% 25%, #D4AF37 2%, transparent 2%),
-    radial-gradient(circle at 75% 75%, #FF8C00 2%, transparent 2%);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@layer components {
+  .african-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, #D4AF37 2%, transparent 2%),
+      radial-gradient(circle at 75% 75%, #FF8C00 2%, transparent 2%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+  }
+
+  .kente-border {
+    border-image: linear-gradient(90deg, #D4AF37, #FF8C00, #DC143C, #228B22) 1;
+    border-width: 3px;
+    border-style: solid;
+  }
 }
 
-.kente-border {
-  border-image: linear-gradient(90deg, #D4AF37, #FF8C00, #DC143C, #228B22) 1;
-  border-width: 3px;
-  border-style: solid;
-}
+@layer base {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #D4AF37;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #B8860B;
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B8860B;
+  }
 }
